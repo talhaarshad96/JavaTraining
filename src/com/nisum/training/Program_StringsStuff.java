@@ -11,7 +11,7 @@ public class Program_StringsStuff
 
     public static void main(String[] args)
     {
-        Program_StringsStuff value = new Program_StringsStuff(); //to call methods without using static
+        Program_StringsStuff value = new Program_StringsStuff();
 
         value.printLength();
         value.concat();
@@ -21,6 +21,7 @@ public class Program_StringsStuff
         value.replace();
         value.reverse();
         value.q1();
+        value.q2();
     }
 
     void printLength()
@@ -80,9 +81,10 @@ public class Program_StringsStuff
 
     void reverse()
     {
-        StringBuilder input = new StringBuilder();
+        StringBuilder input = new StringBuilder("talha");
 
-        System.out.println("reverse function :" + text1);
+
+        System.out.println("reverse function :" + input.reverse());
     }
 
     void q1 ()
@@ -99,20 +101,28 @@ public class Program_StringsStuff
     {
         //find first non repeating char in a string;
 
-        String str1= "talha"; //jo repeat na horaha ho wo print karao.
+        String str1= "talhal"; //jo repeat na horaha ho wo print karao.
 
+//inner loop works like if i=0, and the inner one is j=0 till the condition of j ends, "j" will
+        //iterate completely first and then the second index of "i" loop with run and "j" will run
+        //again completely.
 
-       /* for(int i=0 ; i<str1.length(); i++)
+        for(int i=0 ; i<str1.length(); i++)
         {
-            boolean unique = true;
+            boolean foundChar = true;
             for(int j=0; j<str1.length(); j++ )
             {
-                if(i!=j && str1.charAt(i) ==str1.charAt(j))
-                {
-                    unique = true;
-                }
+                if(i!=j && str1.charAt(i) ==str1.charAt(j)) //doing i!=j because if i and j both are 0 then they will match on same index which we do not want.
+                {                       //also checking the found condition which is false for us.
+                    foundChar = false;
+                    System.out.println("here i is " + i + " and j is : " + j + " found :" + str1.charAt(i));
+                }System.out.println("out of if here i is " + i + " and j is : " + j);
+
             }
-        }*/
+            if (foundChar) {
+                System.out.println("first non repeated char is: " + str1.charAt(i));
+            }
+        }
 
     }
 
