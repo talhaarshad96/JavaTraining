@@ -1,7 +1,6 @@
 package com.nisum.training;
 
 import java.util.Arrays;
-import java.util.Locale;
 
 public class Program_StringsStuff
 {
@@ -13,15 +12,15 @@ public class Program_StringsStuff
     {
         Program_StringsStuff value = new Program_StringsStuff();
 
-        value.printLength();
-        value.concat();
-        value.specialCharacter();
-        value.addNumAndString();
-        value.declareArry();
-        value.replace();
-        value.reverse();
-        value.q1();
-        value.q2();
+//        value.printLength();
+//        value.concat();
+//        value.specialCharacter();
+//        value.addNumAndString();
+//        value.declareArry();
+//        value.replace();
+//        value.reverse();
+       value.q1();
+       // value.q2();
     }
 
     void printLength()
