@@ -12,24 +12,25 @@ import java.util.Scanner;
 
 public class Program_LoopAndCondition_Assignment
 {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException
+    {
         Program_LoopAndCondition_Assignment myObect = new Program_LoopAndCondition_Assignment();
 
         myObect.Author();
-        //myObect.Answer1(); //
+        //myObect.Answer1();
         //myObect.Answer2();
-        //myObect.Answer3(); //
-        //myObect.Answer4(); //
-        myObect.Answer5();
-        //myObect.Answer6(); //
-        //myObect.Answer7(); //
+        //myObect.Answer3();
+        //myObect.Answer4();
+        //myObect.Answer5();
+        //myObect.Answer6();
+        //myObect.Answer7();
         //myObect.Answer8();
-        //myObect.Answer9(); //
-        //myObect.Answer10(); //
-        //myObect.Answer11(); //
-        //myObect.Answer12(); //
-        //myObect.Answer13(); //
-        //myObect.Answer14(); //
+        //myObect.Answer9();
+        //myObect.Answer10();
+        //myObect.Answer11();
+        //myObect.Answer12();
+        //myObect.Answer13();
+        //myObect.Answer14();
     }
 
 
@@ -50,12 +51,8 @@ public class Program_LoopAndCondition_Assignment
         double grossSalary = baseSalary + dearnessAllowance + rentAllowance;
 
         System.out.println(" Ramesh's Gross Salary is : " + grossSalary);
-
     }
 
-    // cashier has currency notes of denominations 10, 50 and 100. If the amount to be
-// withdrawn is input through the keyboard in hundreds, find the total number of currency notes of
-// each denomination the cashier will have to give to the withdrawer.
     public void Answer2()
     {
         System.out.println("\tAnswer 2\n");
@@ -160,72 +157,58 @@ public class Program_LoopAndCondition_Assignment
 
     }
 
-    //A school has 1800 students. The start date and leaving date for each student is stored on file.
-    // Dates are in the format YYMMDD (e.g. a student starting on 10th September 2007 and leaving on 4th August 2012
-    // has the data 070910 and 120804 on file). Write an algorithm, using pseudocode or otherwise, which
-    //● inputs Student ID for all 1800 students
-    //● inputs the start date and leaving date for each student
-    //● carries out a check to ensure the second date is later
-    //● if error, increments error counter
-    //● outputs the number of errors
-
-
     public void Answer5() throws ParseException
     {
         System.out.println("\tAnswer 5");
 
-        int errorCount=0,studentID;
+        int errorCount = 0, studentID;
 
-
-
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter Start date in the format dd-MM-yyyy: ");
-        String startDate = input.next();
-        System.out.print("Enter End date in the format dd-MM-yyyy: ");
-        String endDate = input.next();
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");//dd-MM-yyyy
-        Date dateStart = formatter.parse(startDate);
-        Date dateEnd = formatter.parse(endDate);
-
-        System.out.println(formatter.format(dateStart));
-        System.out.println(formatter.format(dateEnd));
-
-        //System.out.println(new SimpleDateFormat("yyMMdd").format(dateStart));
-        //System.out.println(new SimpleDateFormat("yyMMdd").format(dateEnd));
-
-        System.out.println("date is valid " +dateStart.before(dateEnd));
-
-        try
-        { // 25-05-2021
-            File myObj = new File("StudentRecord.txt");
-            if(myObj.exists())
-            {
-                System.out.println("file exists");
-            }
-            else
-            {
-                myObj.createNewFile();
-                System.out.println("File created :" + myObj.getName());
-            }
-            FileWriter myWriter = new FileWriter("StudentRecord.txt");
-
-            myWriter.write(new SimpleDateFormat("yyMMdd").format(dateStart)+ "," +new SimpleDateFormat("yyMMdd").format(dateEnd)+"\n");
-            myWriter.close();
-            System.out.println("successfully written");
-
-
-        }
-        catch (IOException e)
+        for(studentID = 0 ; studentID<3; studentID++)
         {
-            System.out.println("error occured");
-            e.printStackTrace();
-        }
-//        for(studentID = 0 ; studentID<10; studentID++)
-//        {
-//
-//        }
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter Start date in the format dd-MM-yyyy: ");
+            String startDate = input.next();
+            System.out.print("Enter End date in the format dd-MM-yyyy: ");
+            String endDate = input.next();
 
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");//dd-MM-yyyy
+            Date dateStart = formatter.parse(startDate);
+            Date dateEnd = formatter.parse(endDate);
+
+            System.out.println(formatter.format(dateStart));
+            System.out.println(formatter.format(dateEnd));
+
+            try
+            { // 25-05-2021
+                File myObj = new File("StudentRecord.txt");
+                if (myObj.exists())
+                {
+                    System.out.println("file exists");
+                } else
+                    {
+                        myObj.createNewFile();
+                        System.out.println("File created :" + myObj.getName());
+                    }
+                FileWriter myWriter = new FileWriter("StudentRecord.txt",true);
+
+                if (dateStart.before(dateEnd))
+                {
+                    myWriter.write(studentID+","+new SimpleDateFormat("yyMMdd").format(dateStart) + "," + new SimpleDateFormat("yyMMdd").format(dateEnd) + "\n");
+                    myWriter.close();
+                    System.out.println("successfully written");
+                }
+                else
+                    {
+                        System.out.println("Date format Error, enter again.");
+                        errorCount++;
+                    }
+            } catch (IOException e)
+            {
+                System.out.println("error occured");
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Error count is : "+errorCount);
     }
 
     public void Answer6()
@@ -299,14 +282,17 @@ public class Program_LoopAndCondition_Assignment
         System.out.println("The total amount of money he lost : " + amountOfMoneyLost);
         System.out.println("Loss is : " + lossInPercentage + " Percent");
     }
-    //Write a program that will generate years from 1950 to 2016 and mention if the year is leap year.
+
     public void Answer8()
     {
         System.out.println("\tAnswer 8\n");
 
         for (int years = 1950; years <=2016 ; years ++)
         {
-
+            if (((years % 4 == 0) && (years % 100!= 0)) || (years%400 == 0))
+                System.out.println(years+" is a leap year");
+            else
+                System.out.println(years+" is not a leap year");
         }
     }
 
