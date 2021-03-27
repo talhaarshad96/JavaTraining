@@ -146,6 +146,7 @@ class Manager extends Member
     {
         super(name, age, phoneNum, address, salary);
         this.department=department;
+
     }
 
     public void MngInformation()
